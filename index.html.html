@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anest-Review - Método Comprovado para Aprovação no TEA e TSA</title>
+    <style>
+        :root {
+            --primary: #13164D;
+            --secondary: #4ACEF6;
+            --accent: #FF6B35;
+            --light: #f8f9fa;
+            --dark: #343a40;
+            --gray: #6c757d;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            line-height: 1.6;
+            color: #333;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header */
+        header {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+        
+        .logo {
+            height: 50px;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--secondary);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            text-align: center;
+        }
+        
+        .btn:hover {
+            background-color: var(--primary);
+            transform: translateY(-2px);
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--primary) 0%, #2a2e7a 100%);
+            color: white;
+            padding: 150px 0 100px;
+            text-align: center;
+        }
+        
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .hero .btn {
+            background-color: var(--secondary);
+            font-size: 1.1rem;
+            padding: 15px 40px;
+        }
+        
+        /* Sections */
+        section {
+            padding: 80px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+            color: var(--primary);
+        }
+        
+        .section-title h2 {
+            font-size: 2.2rem;
+            margin-bottom: 15px;
+        }
+        
+        /* Problem Section */
+        .problem {
+            background-color: #f8f9fa;
+        }
+        
+        .problem-item {
+            background: white;
+            border-radius: 10px;
+            padding: 30px;
+            margin-bottom: 25px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        
+        .problem-item h3 {
+            color: var(--primary);
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .problem-item h3:before {
+            content: "⚠️";
+            margin-right: 10px;
+        }
+        
+        /* Solution Section */
+        .pillars {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+        
+        .pillar {
+            background: white;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            border-top: 4px solid var(--secondary);
+        }
+        
+        .pillar h3 {
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+        
+        .pillar ul {
+            list-style-type: none;
+            margin-top: 20px;
+        }
+        
+        .pillar li {
+            margin-bottom: 10px;
+            padding-left: 25px;
+            position: relative;
+        }
+        
+        .pillar li:before {
+            content: "✅";
+            position: absolute;
+            left: 0;
+        }
+        
+        /* Testimonials */
+        .testimonials {
+            background-color: #f8f9fa;
+        }
+        
+        .stats {
+            display: flex;
+            justify-content: center;
+            gap: 50px;
+            margin-bottom: 50px;
+            flex-wrap: wrap;
+        }
+        
+        .stat {
+            text-align: center;
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            min-width: 200px;
+        }
+        
+        .stat-number {
+            font-size: 3rem;
+            font-weight: bold;
+            color: var(--secondary);
+            line-height: 1;
+        }
+        
+        .stat-text {
+            color: var(--primary);
+            font-weight: bold;
+        }
+        
+        .testimonial-image {
+            max-width: 800px;
+            margin: 30px auto;
+            display: block;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .testimonial-image img {
+            width: 100%;
+            border-radius: 10px;
+        }
+        
+        /* Bonus Section */
+        .bonus {
+            background: linear-gradient(135deg, var(--primary) 0%, #2a2e7a 100%);
+            color: white;
+        }
+        
+        .bonus .section-title {
+            color: white;
+        }
+        
+        .bonus-items {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+        
+        .bonus-item {
+            background: rgba(255,255,255,0.1);
+            padding: 25px;
+            border-radius: 10px;
+            backdrop-filter: blur(10px);
+        }
+        
+        .bonus-item h3 {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .bonus-item h3:before {
+            content: "🎁";
+            margin-right: 10px;
+        }
+        
+        /* Audience Section */
+        .audience-items {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        
+        .audience-item {
+            background: white;
+            border-radius: 10px;
+            padding: 25px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            text-align: center;
+        }
+        
+        .audience-item h3 {
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+        
+        /* Guarantee Section */
+        .guarantee {
+            background-color: #f8f9fa;
+            text-align: center;
+        }
+        
+        .guarantee-content {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .guarantee-badge {
+            max-width: 200px;
+            margin: 0 auto 30px;
+        }
+        
+        .guarantee-badge img {
+            width: 100%;
+        }
+        
+        /* Live Section */
+        .live {
+            text-align: center;
+        }
+        
+        .live-image {
+            max-width: 500px;
+            margin: 0 auto 30px;
+            display: block;
+        }
+        
+        .live-image img {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        /* Form */
+        .form-container {
+            background: white;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            max-width: 500px;
+            margin: 0 auto;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--primary);
+            color: white;
+            text-align: center;
+            padding: 30px 0;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .section-title h2 {
+                font-size: 1.8rem;
+            }
+            
+            .stats {
+                gap: 20px;
+            }
+            
+            .stat {
+                min-width: 150px;
+                padding: 20px;
+            }
+            
+            .stat-number {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <img src="https://i.imgur.com/R5lod5C.png" alt="Anest-Review" class="logo">
+                <a href="#live" class="btn">GARANTIR MINHA VAGA</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>De Cada 10 Aprovados no TEA e TSA, 8 São Alunos Anest-Review</h1>
+            <p>Método Validado por Neurociência que vai Além da Teoria e Te Leva à Aprovação na Prática</p>
+            <a href="#live" class="btn">GARANTIR MINHA VAGA NA LIVE GRATUITA</a>
+        </div>
+    </section>
+
+    <!-- Problem Section -->
+    <section class="problem" id="problema">
+        <div class="container">
+            <div class="section-title">
+                <h2>Você já se sentiu assim?</h2>
+                <p>Sabemos que a jornada do anestesista é única e desafiadora. Enquanto você se dedica a salvar vidas no bloco cirúrgico, a preparação para as provas de título parece uma batalha impossível de vencer. Não é falta de esforço, é o sistema que está contra você.</p>
+            </div>
+            
+            <div class="problem-items">
+                <div class="problem-item">
+                    <h3>Tempo Escasso</h3>
+                    <p>Os plantões são imprevisíveis, a carga é pesada, e quando você finalmente chega em casa, a exaustão física e mental fala mais alto. A culpa por não estar estudando o suficiente vira uma sombra constante.</p>
+                </div>
+                
+                <div class="problem-item">
+                    <h3>Falta de Rumo</h3>
+                    <p>O que cai na prova? Você gasta horas estudando um tópico complexo para descobrir que ele nem sequer é cobrado, enquanto assuntos frequentes ficam de lado. É como navegar sem um mapa.</p>
+                </div>
+                
+                <div class="problem-item">
+                    <h3>Métodos Ultrapassados que Não Funcionam</h3>
+                    <p>Você já tentou: Reler textos imensos, Fazer resumos intermináveis que você nunca mais vai revisar, usar flashcards tradicionais. Esses métodos dão uma falsa sensação de produtividade, mas a informação não é fixada de verdade. O resultado? Na hora da prova, a memória falha.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Solution Section -->
+    <section class="solution" id="solucao">
+        <div class="container">
+            <div class="section-title">
+                <h2>Conheça o Método Anest-Review, Feito por Anestesistas para Anestesistas</h2>
+                <p>Chega de nadar contra a corrente. Nós criamos um sistema inteligente e validado que respeita a sua rotina exaustiva e otimiza cada minuto do seu estudo. Não é mais um curso, é uma jornada estruturada para a sua aprovação.</p>
+                <p><strong>Transformamos a sobrecarga em foco, e o cansaço em eficiência com os 4 pilares do método Anest-Review</strong></p>
+            </div>
+            
+            <div class="pillars">
+                <div class="pillar">
+                    <h3>Cronograma Personalizado – O Seu GPS para a Aprovação</h3>
+                    <p><strong>Saiba exatamente o que estudar a cada dia, do início ao dia da prova.</strong></p>
+                    <p>Chega de perder horas decidindo por onde começar. Nosso sistema cria um plano de estudos sob medida para você, focado 100% nos assuntos de maior incidência no TEA, TSA e EDAIC. É como ter um mentor que te guia diretamente ao que importa, eliminando a dúvida e a perda de tempo.</p>
+                    <ul>
+                        <li>Acordar sabendo exatamente qual é a sua meta do dia e fechar a noite com a certeza de que evoluiu.</li>
+                    </ul>
+                </div>
+                
+                <div class="pillar">
+                    <h3>Aulas Curtas e Direcionadas – Aprenda no Seu Tempo</h3>
+                    <p><strong>Estude entre um procedimento e outro, sem precisar de horas livres.</strong></p>
+                    <p>Nossas aulas são objetivas, em formato de videoaulas de curta duração, feitas para caber nos seus intervalos. Esqueça as aulas entediantes de 2 horas. Aqui, você absorve o conteúdo essencial de forma densa e eficiente, adaptada à rotina do bloco cirúrgico. Todas as aulas estão disponíveis no app para você baixar e assistir mesmo sem internet.</p>
+                    <ul>
+                        <li>Aproveitar aquele tempo ocioso no hospital para dar um gás nos estudos, sem atrapalhar seu descanso.</li>
+                    </ul>
+                </div>
+                
+                <div class="pillar">
+                    <h3>Banco de Questões Inteligente – Treine no Modo Prova</h3>
+                    <p><strong>Treine com o maior banco de questões de Anestesiologia na palma da sua mão!</strong></p>
+                    <p>A teoria só faz sentido quando aplicada. Nosso banco possui milhares de questões comentadas pelos nossos especialistas. Você pode personalizar os simulados por tema, dificuldade ou estilo de prova, treinando exatamente no ritmo e no formato que você enfrentará no dia real.</p>
+                    <ul>
+                        <li>Chegar na prova com a experiência de já ter resolvido centenas de questões similares, dominando a estratégia e o tempo.</li>
+                    </ul>
+                </div>
+                
+                <div class="pillar">
+                    <h3>Flashcards 2.0 – Memorização Científica</h3>
+                    <p><strong>Memorize com Active Recall e Spaced Repetition, sem perder tempo.</strong></p>
+                    <p>Adeus aos "textões" e flashcards tradicionais que não fixam o conhecimento. Nossos cards são baseados em neurociência, usando as técnicas comprovadas de Active Recall (Recuperação Ativa) e Spaced Repetition (Repetição Espaçada). O sistema aprende com você e revisa o conteúdo no momento exato em que você está prestes a esquecê-lo, tornando a memorização natural e duradoura.</p>
+                    <ul>
+                        <li>Fixar os conceitos mais complexos de forma definitiva, gastando até 70% menos tempo com revisões.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials" id="resultados">
+        <div class="container">
+            <div class="section-title">
+                <h2>O QUE FALA QUEM JÁ UTILIZOU O MÉTODO</h2>
+                <p>Você não precisa acreditar apenas na nossa palavra. Acreditamos em resultados. E os números e as vozes dos mais de 80% de aprovados nas últimas provas de TEA, TSA e EDAIC falam por si. Eles viveram a mesma rotina, os mesmos desafios e confiaram no método.</p>
+            </div>
+            
+            <div class="stats">
+                <div class="stat">
+                    <div class="stat-number">8/10</div>
+                    <div class="stat-text">Aprovados no TEA</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">8/10</div>
+                    <div class="stat-text">Aprovados no TSA</div>
+                </div>
+            </div>
+            
+            <div class="testimonial-image">
+                <img src="https://i.imgur.com/EGzqmlr.png" alt="Depoimentos de alunos Anest-Review">
+            </div>
+            
+            <div class="section-title">
+                <h3>CONTRA FATOS NÃO HÁ ARGUMENTOS</h3>
+                <p>Com o método da Anest-Review o resultado é um só: A maior taxa de aprovação do mercado!</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bonus Section -->
+    <section class="bonus" id="bonus">
+        <div class="container">
+            <div class="section-title">
+                <h2>⭐ Bônus ESPECIAL por Tempo Limitado</h2>
+                <p>Além do método completo de preparação para provas, você recebe ferramentas poderosas que vão acelerar ainda mais sua jornada:</p>
+            </div>
+            
+            <div class="bonus-items">
+                <div class="bonus-item">
+                    <h3>Bônus 1: Maior Banco de Questões do Mercado</h3>
+                    <p>+6.700 questões comentadas da especialidade.</p>
+                    <ul>
+                        <li>Pratique no seu ritmo, por assunto ou através de simulados</li>
+                        <li>Comentários detalhados que transformam erros em aprendizado</li>
+                        <li>Plataforma 100% adaptada para mobile</li>
+                    </ul>
+                </div>
+                
+                <div class="bonus-item">
+                    <h3>Bônus 2: Acesso Direto aos Professores</h3>
+                    <p>Fórum de dúvidas exclusivo com acesso direto aos professores.</p>
+                    <ul>
+                        <li>Tire suas dúvidas específicas com quem realmente entende do assunto</li>
+                        <li>Respostas qualificadas em até 24h</li>
+                        <li>Interaja com outros alunos e construa conhecimento coletivo</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 30px;">
+                <a href="#live" class="btn">GARANTIR MINHA VAGA NA LIVE GRATUITA</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Audience Section -->
+    <section class="audience" id="publico">
+        <div class="container">
+            <div class="section-title">
+                <h2>Para Quem é Este Curso?</h2>
+                <p>O método foi cuidadosamente desenvolvido para profissionais que buscam resultados reais - seja na aprovação em provas ou na excelência da prática clínica. Se você se identifica com algum destes perfis, esta é a sua oportunidade de transformar sua jornada:</p>
+            </div>
+            
+            <div class="audience-items">
+                <div class="audience-item">
+                    <h3>🎯 O Resident em Anestesiologia</h3>
+                    <p>que precisa conciliar a rotina pesada do bloco cirúrgico com estudos de alta eficiência para o TEA e TSA.</p>
+                </div>
+                
+                <div class="audience-item">
+                    <h3>🎯 O Anestesista que Quer Dominar a Ecocardiografia Perioperatória</h3>
+                    <p>e elevar seu nível de cuidado ao paciente.</p>
+                </div>
+                
+                <div class="audience-item">
+                    <h3>🎯 O Profissional que Cansa de Métodos Ultrapassados</h3>
+                    <p>e busca uma forma inteligente, baseada em neurociência, para fixar o conhecimento.</p>
+                </div>
+                
+                <div class="audience-item">
+                    <h3>🎯 Quem Precisa de Direcionamento Claro</h3>
+                    <p>e não quer mais perder tempo com conteúdos que não são cobrados nas provas.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Guarantee Section -->
+    <section class="guarantee" id="garantia">
+        <div class="container">
+            <div class="guarantee-content">
+                <div class="guarantee-badge">
+                    <img src="https://i.imgur.com/M4TNTFe.png" alt="Garantia de 7 dias">
+                </div>
+                
+                <h2>VOCÊ AINDA TEM A GARANTIA DE 7 DIAS</h2>
+                <p>Ou seja, você vai entrar e ver por dentro a plataforma, as aulas, o suporte, os presentes, materiais e tudo mais.</p>
+                <p>Se você não se identificar ou achar que isso tudo não é pra você, devolvemos o seu dinheiro.</p>
+                <p>Simples, rápido e sem burocracia!</p>
+                <p><strong>Ou seja, aqui você não tem risco algum!</strong></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Live Section -->
+    <section class="live" id="live">
+        <div class="container">
+            <div class="section-title">
+                <h2>Inscreva-se na Live Gratuita: A Estratégia para a Aprovação em 2026</h2>
+                <p>Na Live, você vai descobrir os HOT TOPICS das próximas provas e como otimizar seus estudos</p>
+            </div>
+            
+            <div class="live-image">
+                <img src="https://i.imgur.com/UZYYsNc.jpeg" alt="Live Anest-Review">
+            </div>
+            
+            <div class="form-container">
+                <!-- Formulário HubSpot -->
+                <iframe src="https://tm5jh.share.hsforms.com/2wKSKNVKDTeSqzFioW2NB1A" width="100%" height="600" frameborder="0" marginheight="0" marginwidth="0">Carregando…</iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>Anest-Review &copy; 2025 - Todos os direitos reservados</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scroll para links internos
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
